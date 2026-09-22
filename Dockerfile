@@ -20,6 +20,7 @@ RUN cat \
     /tmp/bundle/p2_02 \
     > /tmp/essential.b64 \
     && python -c "import base64,pathlib,zipfile; p=pathlib.Path('/tmp/essential.b64'); z=pathlib.Path('/tmp/essential.zip'); z.write_bytes(base64.b64decode(p.read_text())); zipfile.ZipFile(z).extractall('/app')" \
+    && python -c "from pathlib import Path; import re; p=Path('/app/static/app.js'); s=p.read_text(); s=re.sub(r'\\btop\\(', 'pageTop(', s); p.write_text(s)" \
     && rm -rf /tmp/bundle /tmp/essential.b64 /tmp/essential.zip
 
 RUN pip install --no-cache-dir -r requirements.txt
