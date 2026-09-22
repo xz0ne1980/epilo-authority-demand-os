@@ -8,7 +8,8 @@ WORKDIR /app
 COPY bundle /tmp/bundle
 
 RUN cat \
-    /tmp/bundle/part00.b64 \
+    /tmp/bundle/exact_00000_10000.b64 \
+    /tmp/bundle/exact_10000_20023.b64 \
     /tmp/bundle/missing_20023_40000.b64 \
     /tmp/bundle/p1_00 \
     /tmp/bundle/p1_01 \
