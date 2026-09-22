@@ -9,6 +9,7 @@ COPY bundle /tmp/bundle
 
 RUN cat \
     /tmp/bundle/part00.b64 \
+    /tmp/bundle/missing_20023_40000.b64 \
     /tmp/bundle/p1_00 \
     /tmp/bundle/p1_01 \
     /tmp/bundle/p1_02 \
